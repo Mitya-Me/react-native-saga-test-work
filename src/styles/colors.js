@@ -5,6 +5,18 @@ export default {
 	border: '#DDDDDD',
 
 	text: '#000000',
-	textLight: '#767676',
-	textWhite: '#FFFFFF'
+	textGray: '#767676',
+	textWhite: '#FFFFFF',
+
+	btnBorder: '#BB0D02',
+	btnBg: '#BB0D02',
+	btnText: '#FFFFFF', 
+	
+	btnSeconaryBorder: '#BB0D02',
+	btnSeconaryBg: '#FFFFFF',
+	btnSeconaryText: '#BB0D02',
+
+	btnDisabledBorder: '#767676',
+	btnDisabledBg: '#d1d1d1',
+	btnDisabledText: '#FFFFFF',
 }
