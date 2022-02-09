@@ -4,18 +4,14 @@ import colors from '../styles/colors'
 
 const CustomInput = ({ label, placeholder }) => {
 	return (
-		<View style={styles.wrapper}>
+		<>
 			<Text style={styles.label}> {label} </Text>
-			<TextInput
-				placeholder={placeholder}
-				style={styles.input} />
-		</View>
+			<TextInput placeholder={placeholder} style={styles.input} />
+		</>
 	)
 }
 
 const styles = StyleSheet.create({
-	wrapper: {
-	},
 	input: {
 		margin: 0,
 		padding: 5,
