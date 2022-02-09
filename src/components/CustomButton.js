@@ -2,12 +2,20 @@ import React from 'react'
 import { Pressable, Text, StyleSheet } from 'react-native'
 import colors from '../styles/colors'
 
-const CustomButton = ({text, bg, fg}) => { 
+const CustomButton = ({ onPress, text, width, bRadius, type='prime', dis }) => {
 	return (
 		<Pressable
-			style={styles.wrapper}>
-			<Text
-				style={styles.text}>
+			onPress={onPress}
+			disabled={dis}
+			style={[
+				styles.wrapper,
+				styles[dis ? `wrapper_disabled` : `wrapper_${type}`],
+				{
+					width: width ? width : '75%',
+					borderRadius: bRadius ? bRadius : 0,
+				}
+			]}>
+			<Text style={styles[dis ? `text_disabled` : `text_${type}`]}>
 				{text}
 			</Text>
 		</Pressable>
@@ -17,15 +25,30 @@ const CustomButton = ({text, bg, fg}) => {
 const styles = StyleSheet.create({
 	wrapper: {
 		padding: 10,
-		width: '75%',
-		borderRadius: 5,
-		backgroundColor: colors.primary,
-		color: 'white',
 		alignItems: 'center',
-		alignSelf: 'center'
+		alignSelf: 'center',
+		borderWidth: 1
 	},
-	text: {
-		color: colors.textWhite,
+	wrapper_prime: {
+		borderColor: colors.btnBorder,
+		backgroundColor: colors.btnBg
+	},
+	wrapper_secondary: {
+		borderColor: colors.btnSeconaryBorder,
+		backgroundColor: colors.btnSeconaryBg
+	},
+	wrapper_disabled: {
+		borderColor: colors.btnDisabledBorder,
+		backgroundColor: colors.btnDisabledBg
+	},
+	text_prime: {
+		color: colors.btnText
+	},
+	text_secondary: {
+		color: colors.btnSeconaryText
+	},
+	text_disabled: {
+		color: colors.btnDisabledText
 	}
 })
 
