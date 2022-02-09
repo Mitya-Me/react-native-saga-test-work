@@ -8,18 +8,14 @@
 
 import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
-import TopPanel from './src/components/TopPanel';
-import LoginScreen from './src/screens/LoginScreen';
 import colors from './src/styles/colors';
-
-
+import Navigation from './src/navigation'
 
 const App = () => {
   return (
     <SafeAreaView style={styles.root}>
       <StatusBar backgroundColor={colors.primary} />
-      <TopPanel auth/>
-      <LoginScreen/>
+      <Navigation />
     </SafeAreaView>
   );
 }
