@@ -2,11 +2,15 @@ import React, { useState } from 'react'
 import { TextInput, Text, View, StyleSheet } from 'react-native'
 import colors from '../styles/colors'
 
-const CustomInput = ({ label, placeholder }) => {
+const CustomInput = ({ label, placeholder, value, onChangeText }) => {
 	return (
 		<>
-			<Text style={styles.label}> {label} </Text>
-			<TextInput placeholder={placeholder} style={styles.input} />
+			<Text> {label} </Text>
+			<TextInput
+				value={value}
+				onChangeText={onChangeText}
+				placeholder={placeholder}
+				style={styles.input} />
 		</>
 	)
 }
