@@ -1,19 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, StyleSheet, ScrollView, useWindowDimensions } from 'react-native'
 import CustomInput from '../components/CustomInput'
 import CustomButton from '../components/CustomButton'
 import colors from '../styles/colors'
 import CustomText from '../components/CustomText'
 import { useNavigation } from '@react-navigation/native'
+import { FETCH_POSTS } from '../redux/reducers/postsReducer/actions'
+import { useDispatch, useSelector } from 'react-redux'
+import {loginGreetings} from '../constants/text/loginGreetings'
+import { AUTH_LOAD } from '../redux/reducers/authReducer/actions'
 
 const LoginScreen = () => { 
 	const { height } = useWindowDimensions()
 	const navigation = useNavigation();
+	const dispatch = useDispatch();
+	const { availabilityAuth } = useSelector(state => state.auth)
+	
+	const [loginValue, setLoginValue] = useState();
+	const [passwordValue, setPasswordValue] = useState();
 
-	const auth = true;
+	useEffect(() => { 
+		if (loginValue?.length > 1 && passwordValue?.length > 1) {
+			dispatch({
+				type: AUTH_LOAD,
+				payload: {login: loginValue, password: passwordValue}
+			})
+		} 
+	}, [loginValue, passwordValue])
 
+	
 	const onEnterPressed = () => { 
-		navigation.navigate('EmployeeList')
+		dispatch({ type: FETCH_POSTS })
 	}
 
 	return (
@@ -29,17 +46,23 @@ const LoginScreen = () => {
 				/>
 				<CustomText
 					tAlign='center'
-					color = {colors.textGray}
-					text="Xavier is a member of a subspecies of humans known as mutants,
-					   who are born with superhuman abilities. He is an exceptionally powerful telepath,
-					   who can read and control the minds of others. To both shelter and train mutants from
-					   around the world, he runs a private school in the X-Mansion in Salem Center, located
-					   in Westchester County, New York."
+					color={colors.textGray}
+					text={loginGreetings}
 				/>
 			</View>
-			<CustomInput label='Login' placeholder='Login'/>			
-			<CustomInput label='Password' placeholder='Password' />
-			<CustomButton onPress={onEnterPressed} dis={!auth} text='Enter' bRadius={5}/>
+			<CustomInput
+				onChangeText={setLoginValue}
+				placeholder='Login'
+				value={loginValue}
+				label='Login'
+			/>			
+			<CustomInput
+				onChangeText={setPasswordValue}
+				placeholder='Password'
+				value={passwordValue}
+				label='Password'
+			/>
+			<CustomButton onPress={onEnterPressed} dis={!availabilityAuth} text='Enter' bRadius={5}/>
 		</ScrollView>
 	)
 }

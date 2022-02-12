@@ -4,8 +4,8 @@ import colors from '../styles/colors'
 import CustomButton from '../components/CustomButton'
 import CustomText from '../components/CustomText'
 
-const EmployeeScreen = ({ userName, description }) => {
-	const onEmployeeItemPressed = () => { 
+const PostScreen = ({ userName, description }) => {
+	const onPostPressed = () => { 
 		console.warn('onEmployeeItemPressed')
 	}
 
@@ -13,9 +13,9 @@ const EmployeeScreen = ({ userName, description }) => {
 		<View style={styles.wrapper}>
 			<View style={styles.textBlock}>
 				<CustomText
-					text='Xavier'
 					fz={20}
 					fw='bold'
+					text='Xavier'
 				/>
 				<CustomText
 					text="After becoming paraplegic following a conflict against
@@ -32,7 +32,7 @@ const EmployeeScreen = ({ userName, description }) => {
 			</View>
 			<View style={styles.btns}>
 				<CustomButton
-					onPress={onEmployeeItemPressed}
+					onPress={onPostPressed}
 					type='secondary'
 					text='Back'
 					width='50%'
@@ -59,4 +59,4 @@ const styles = StyleSheet.create({
 	}
 })
 
-export default EmployeeScreen
+export default PostScreen

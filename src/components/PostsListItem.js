@@ -2,7 +2,7 @@ import React from 'react'
 import {TouchableOpacity, Text, StyleSheet} from 'react-native'
 import colors from '../styles/colors'
 
-const EmployeeListItem = ({text}) => {
+const PostsListItem = ({text}) => {
 	return (
 		<TouchableOpacity style={styles.wrapper}>
 			<Text style={styles.text}>{ text }</Text>
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
 	}
 })
 
-export default EmployeeListItem;
+export default PostsListItem;

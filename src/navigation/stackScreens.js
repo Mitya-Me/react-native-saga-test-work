@@ -1,13 +1,13 @@
 import LoginScreen from '../screens/LoginScreen'
-import EmployeeScreen from '../screens/EmployeeScreen'
-import EmployeesListScreen from '../screens/EmployeesListScreen'
+import PostScreen from '../screens/PostScreen'
+import PostsListScreen from '../screens/PostsListScreen'
 
 export const publicStackScreens = [
 	{ name: 'Login', component: LoginScreen },
 ]
 
 export const privateStackScreens = [
-	{ name: 'Employee', component: EmployeeScreen },
-	{ name: 'EmployeeList', component: EmployeesListScreen },
+	{ name: 'Post', component: PostScreen },
+	{ name: 'PostList', component: PostsListScreen },
 ]
 

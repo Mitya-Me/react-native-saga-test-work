@@ -3,15 +3,17 @@ import React from 'react'
 import CustomStackNavigator from './CustomStackNavigator';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { privateStackScreens, publicStackScreens } from './stackScreens';
+import { useSelector } from 'react-redux';
 
 const Stack = createNativeStackNavigator();
 
-const auth = true;
 
 const Navigation = () => {
+	const {uploadData} = useSelector(state => state.posts)
+
 	return (
 		<NavigationContainer>
-			{auth
+			{uploadData
 				? <CustomStackNavigator
 				userName='Vasiliy Bedrovich'
 				screens={privateStackScreens.map(({ name, component }) => (
