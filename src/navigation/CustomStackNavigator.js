@@ -7,10 +7,10 @@ import { NavigationContainer } from '@react-navigation/native'
 
 const Stack = createNativeStackNavigator();
 
-const CustomStackNavigator = ({ userName, screens }) => {
+const CustomStackNavigator = ({ userName, screens, initialRouteName = 'Login' }) => {
 	return (
 		<Stack.Navigator
-			initialRouteName="Login"
+			initialRouteName={initialRouteName}
 			screenOptions={{
 				headerStyle: { backgroundColor: colors.primary },
 				headerTitleStyle: { fontSize: 16, fontWeight: 'normal' },
