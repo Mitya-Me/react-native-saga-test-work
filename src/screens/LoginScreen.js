@@ -4,15 +4,13 @@ import CustomInput from '../components/CustomInput'
 import CustomButton from '../components/CustomButton'
 import colors from '../styles/colors'
 import CustomText from '../components/CustomText'
-import { useNavigation } from '@react-navigation/native'
 import { FETCH_POSTS } from '../redux/reducers/postsReducer/actions'
 import { useDispatch, useSelector } from 'react-redux'
-import {loginGreetings} from '../constants/text/loginGreetings'
+import { loginGreetingsText} from '../constants/textContent/loginGreetingsText'
 import { AUTH_LOAD } from '../redux/reducers/authReducer/actions'
 
 const LoginScreen = () => { 
 	const { height } = useWindowDimensions()
-	const navigation = useNavigation();
 	const dispatch = useDispatch();
 	const { availabilityAuth } = useSelector(state => state.auth)
 	
@@ -47,7 +45,7 @@ const LoginScreen = () => {
 				<CustomText
 					tAlign='center'
 					color={colors.textGray}
-					text={loginGreetings}
+					text={loginGreetingsText}
 				/>
 			</View>
 			<CustomInput

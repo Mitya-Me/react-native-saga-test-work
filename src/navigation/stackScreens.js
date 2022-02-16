@@ -7,7 +7,7 @@ export const publicStackScreens = [
 ]
 
 export const privateStackScreens = [
+	{ name: 'PostsList', component: PostsListScreen },
 	{ name: 'Post', component: PostScreen },
-	{ name: 'PostList', component: PostsListScreen },
 ]
 

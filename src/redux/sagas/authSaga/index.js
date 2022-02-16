@@ -1,6 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects'
 import { Alert } from 'react-native'
-import { AUTH_AVAILABILITY_SUCCESS, AUTH_LOAD, AUTH_LOGIN } from '../../reducers/authReducer/actions'
+import { AUTH_LOAD, AUTH_LOGIN } from '../../reducers/authReducer/actions'
 
 
 function* authUser() {

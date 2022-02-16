@@ -22,3 +22,4 @@ export function* loadPosts() {
 export default function* postsSaga() { 
 	yield takeLatest(FETCH_POSTS, loadPosts)
 }
+

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { TextInput, Text, View, StyleSheet } from 'react-native'
+import React from 'react'
+import { TextInput, Text, StyleSheet } from 'react-native'
 import colors from '../styles/colors'
 
 const CustomInput = ({ label, placeholder, value, onChangeText }) => {

@@ -1,4 +1,4 @@
-import {  AUTH_AVAILABILITY_FAILED, AUTH_AVAILABILITY_SUCCESS, AUTH_LOAD, AUTH_LOGIN, AUTH_LOGOUT} from "./actions"
+import {  AUTH_AVAILABILITY_FAILED, AUTH_LOAD, AUTH_LOGIN, AUTH_LOGOUT} from "./actions"
 
 const initialAuthState = {
 	userData: {
