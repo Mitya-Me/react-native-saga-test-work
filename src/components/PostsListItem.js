@@ -1,11 +1,19 @@
 import React from 'react'
 import {TouchableOpacity, Text, StyleSheet} from 'react-native'
 import colors from '../styles/colors'
+import { useNavigation } from '@react-navigation/native'
 
-const PostsListItem = ({text}) => {
+
+const PostsListItem = ({ post }) => {
+	const navigation = useNavigation();
+	
+	const onPostPressed = () => { 
+		navigation.navigate('Post', {post})
+	}
+
 	return (
-		<TouchableOpacity style={styles.wrapper}>
-			<Text style={styles.text}>{ text }</Text>
+		<TouchableOpacity onPress={onPostPressed} style={styles.wrapper}>
+			<Text style={styles.text}>{ post.title }</Text>
 		</TouchableOpacity>
 	)
 }
