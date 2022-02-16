@@ -7,16 +7,17 @@ import { useSelector } from 'react-redux';
 
 const Stack = createNativeStackNavigator();
 
-
 const Navigation = () => {
-	const {uploadData} = useSelector(state => state.posts)
+	const { uploadData } = useSelector(state => state.posts)
+	const { availabilityAuth, userData } = useSelector(state => state.auth)
 
 	return (
 		<NavigationContainer>
-			{uploadData
+			{availabilityAuth && uploadData
 				? <CustomStackNavigator
-				userName='Vasiliy Bedrovich'
-				screens={privateStackScreens.map(({ name, component }) => (
+					initialRouteName='PostsList'
+					userName={userData.login}
+					screens={privateStackScreens.map(({ name, component }) => (
 					<Stack.Screen key={name} name={name} component={component}/>
 				))}
 				/>
@@ -26,7 +27,6 @@ const Navigation = () => {
 				))}
 				/>
 			} 
-			
 		</NavigationContainer>
 	)
 }
