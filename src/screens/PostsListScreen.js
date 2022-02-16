@@ -1,13 +1,15 @@
 import React from 'react'
 import {  StyleSheet, ScrollView } from 'react-native'
+import { useSelector } from 'react-redux'
 
 import PostsListItem from '../components/PostsListItem'
 
 const PostsListScreen = () => { 
-	const testArr = ['Andrey', 'Valera', 'Aleksandr', 'Petya', 'Nikolay', 'Tatyana']
+	const posts = useSelector(state => state.posts.data)
+
 	return (
 		<ScrollView style={styles.list}> 
-			{testArr.map(empl => <PostsListItem text={empl}/>)}
+			{posts.map(post => <PostsListItem post={post}/>)}
 		</ScrollView>
 	)
 }
